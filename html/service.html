@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/CSS/service.css">
+    <link rel="stylesheet"href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"integrity="sha512-1ycn6IcaQQ40/MKBW2WlV7ZwDkDq2xVZ1zDk3+MZ6dJ/2pYYFzj0Hd3TuvCFkuUJ+Frjkh8Bw+dnzT9Z3M6+Rw=="crossorigin="anonymous"referrerpolicy="no-referrer"/>
+    <link rel="icon" type="me" href="/images/icon.jps.png">
+    <title>Service</title>
+</head>
+<body>
+    <header>
+            <!-- Animated Background -->
+        <div class="bg-animation" id="bgAnimation"></div>
+
+      <!-- Futuristic Navbar -->
+      <section class="header" id="header">
+        <a href="/index.html" class="logo">Vincent-Vy</a>
+
+        <nav class="navbar" id="navbar">
+            <div class="nav-item">
+                <a href="/index.html">Home</a>
+            </div>
+            <div class="nav-item">
+                <a href="/html/about.html">About</a>
+            </div>
+            <div class="nav-item">
+                <a href="#services" class="active">Services</a>
+            </div>
+            <div class="nav-item">
+                <a href="/html/contact.html">Contact</a>
+            </div>
+        </nav>
+         <i class='bx bx-menu' id="menu-icon"></i>
+    </header>
+    <div class="container">
+        <div class="service-wrapper">
+            <div class="service">
+                <h1>Our serivce</h1>
+                <div class="cards">
+                    <div class="cards">
+                        <i class="fa-brands fa-chromecast"></i>
+                        <h2>UxUI desing</h2>
+                        <p>I love designing clean and intuitive interfaces that make users feel comfortable and engaged. For me, UX/UI design is not just about how things look, but how they work. I focus on understanding user behavior and creating layouts that are simple, smooth, and enjoyable to use across both web and mobile platforms.
+                             </p>
+                    </div>
+                    <!---card2-->
+                    <div class="cards">
+                       <i class="fa-solid fa-code"></i>
+                        <h2>Web development</h2>
+                        <p>Building websites is something I truly enjoy. I focus on creating responsive, fast-loading, and modern websites using HTML, CSS, JavaScript, and frameworks. Whether it's a personal portfolio or a full business website, I make sure the design and code work perfectly together.</p> 
+                    </div>
+                    <!--card3------------->
+                    <div class="cards">
+                        <i class="fa-soild fa-user-group"></i>
+                        <h2>Graphic desing </h2>
+                        <p>I use graphic design to express ideas in a creative way. From posters and logos to social media content, I enjoy mixing color, typography, and layout to bring strong visual messages to life. I believe good design should speak without words and that’s what I aim to create.</p>
+                    </div>
+                    <!---------card4----------->
+                    <div class="cards">
+                        <i class="fa-soild fa-camera"></i>
+                        <h2>Marketing and report</h2>
+                        <p>I help businesses grow by creating data-driven marketing strategies tailored to their audience. From content planning to social media campaigns, I focus on delivering the right message to the right people at the right time. My goal is to build brand awareness, increase engagement, and drive real results through clear and targeted communication.</p>
+                    </div>
+                    <!---------------------card5---------------------------------->
+                    <div class="cards">
+                        <i class="fa-soild fa-desktop"></i>
+                        <h2>mobile development</h2>
+                        <p>I’m also passionate about building mobile apps that are user-friendly and practical. Whether it's a small utility app or a more complex project, I work to create apps that are smooth, responsive, and enjoyable to use on both Android and iOS devices.</p>
+                    </div>
+                <!---card6-->
+                <div class="cards">
+                    <h2>Artificial Intelligence </h2>
+                    <p>
+                        I explore and apply AI technologies to create smart, automated solutions that improve user experience and business efficiency. Whether it's chatbots, data analysis, or recommendation systems, I focus on integrating AI in a way that's practical and impactful. My goal is to help businesses leverage AI tools to save time, make better decisions, and deliver more personalized experiences.
+                    </p>
+                </div>
+                </div>
+            </div>
+        </div>
+    </div>
+<script>
+        // Mobile menu toggle
+    const menuIcon = document.getElementById('menu-icon');
+    const navbar = document.getElementById('navbar');
+
+    menuIcon.addEventListener('click', () => {
+      navbar.classList.toggle('active');
+      menuIcon.classList.toggle('bx-x');
+    });
+
+         // Close mobile menu when clicking a link
+    const navLinks = document.querySelectorAll('.navbar a');
+    navLinks.forEach(link => {
+      link.addEventListener('click', () => {
+        navbar.classList.remove('active');
+        menuIcon.classList.remove('bx-x');
+
+        navLinks.forEach(l => l.classList.remove('active'));
+        link.classList.add('active');
+      });
+    });
+
+    // Glitch effect on logo
+    const logo = document.querySelector('.logo');
+    logo.addEventListener('click', () => {
+      logo.style.animation = 'none';
+      setTimeout(() => {
+        logo.style.animation = 'glitch 0.3s ease';
+      }, 10);
+    });
+
+    // Add glitch keyframes
+    const style = document.createElement('style');
+    style.textContent = `
+      @keyframes glitch {
+        0% { transform: translate(0); }
+        20% { transform: translate(-2px, 2px); }
+        40% { transform: translate(-2px, -2px); }
+        60% { transform: translate(2px, 2px); }
+        80% { transform: translate(2px, -2px); }
+        100% { transform: translate(0); }
+      }
+    `;
+    document.head.appendChild(style);
+
+    // Initialize particles
+    createParticles();
+
+    // Smooth scroll
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        const targetId = this.getAttribute('href').substring(1);
+        const targetElement = document.getElementById(targetId);
+        if (targetElement) {
+          targetElement.scrollIntoView({ behavior: 'smooth' });
+        }
+      });
+    });
+  </script> 
+</body>
+</html>
